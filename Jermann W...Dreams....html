@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jermann W...Dreams... - Technical Sheet</title>
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fcf7f7;
+            color: #333333;
+            line-height: 1.6;
+        }
+        header {
+            background-color:#d4af37;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+        }
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card-container {
+            position: relative;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .wine-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .logo-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            opacity: 0.1;
+            pointer-events: none;
+            text-align: center;
+        }
+        .logo-background img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            filter: grayscale(1%) brightness(0.7);
+        }
+        .wine-info h1 {
+            color: #d4af37;
+            margin-top: 0;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 10px;
+        }
+        .wine-info h2 {
+            font-style: italic;
+            font-weight: normal;
+            margin-top: 5px;
+            color: #d4af37;
+        }
+        .specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .spec-item {
+            display: flex;
+        }
+        .spec-item strong {
+            min-width: 120px;
+            color: #d4af37;
+        }
+        .chart-container {
+            position: relative;
+            padding: 20px;
+            z-index: 2;
+        }
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            position: relative;
+            z-index: 3;
+        }
+        .chart-title {
+            color: #d4af37;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 3;
+        }
+        .radar-chart {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            z-index: 3;
+        }
+        .aroma-chart {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            z-index: 3;
+        }
+        .flavor-profile {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+        .flavor-category {
+            padding: 10px;
+        }
+        .flavor-category h3 {
+            color: #d4af37;
+            margin-top: 0;
+        }
+        footer {
+            background-color: #d4af37;
+            color: black;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .wine-type-indicator {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #d4af37;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        .extra-info {
+            grid-column: span 2;
+            padding: 10px;
+            border-left: 3px solid #d4af37;
+            margin-top: 10px;
+        }
+        .extra-info h3 {
+            color: #d4af37;
+            margin-top: 0;
+        }
+        .extra-info p {
+            font-size: 14px;
+        }
+        
+        /* Media queries for mobile version */
+        @media (max-width: 768px) {
+            .content {
+                padding: 10px;
+            }
+            .wine-card {
+                grid-template-columns: 1fr;
+            }
+            .chart-row {
+                grid-template-columns: 1fr;
+            }
+            .specs {
+                grid-template-columns: 1fr;
+            }
+            .flavor-profile {
+                grid-template-columns: 1fr;
+            }
+            .spec-item {
+                flex-direction: column;
+            }
+            .spec-item strong {
+                min-width: auto;
+                margin-bottom: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jermann - W...Dreams... <span class="wine-type-indicator">White</span></h1>
+    </header>
+    
+    <div class="content">
+        <div class="card-container">
+            <div class="logo-background">
+                <img src="https://s4ng4.github.io/An-Evening-In-Alba/gcaLogo.png" alt="Wine logo" onerror="this.style.display='none'">
+            </div>
+            <div class="wine-card">
+                <div class="wine-info">
+                    <h1>W...Dreams...</h1>
+                    <h2>Jermann</h2>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <strong>Producer:</strong>
+                            <span>Jermann</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Grapes:</strong>
+                            <span>97% Chardonnay</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Soil:</strong>
+                            <span>Marly sandstone</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Alcohol Content:</strong>
+                            <span>13%</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Aging:</strong>
+                            <span>In small 300-litre French oak barrels</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Acidity:</strong>
+                            <span>5.60 - 6.40 %</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Bottle Type:</strong>
+                            <span>Traditional Borgognotta</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Closure:</strong>
+                            <span>Screw cap since 2011 vintage</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Shelf Life:</strong>
+                            <span>8 to 10 years</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wine-summary">
+                    <h3>About the Wine</h3>
+                    <p>A wine born from dreams, made with 97% Chardonnay grapes. The aging in small French oak barrels gives it a remarkable complexity and structure. A wine that has evolved over the years, from its name to its closure, always maintaining its character and quality. The screw cap is a recent choice made to ensure the wine's quality is preserved over its long life.</p>
+                </div>
+                <div class="extra-info">
+                    <h3>History and Trivia</h3>
+                    <p>Dedicated to U2's "The Joshua Tree" album, the wine was first made in 1987 as "Where the Dreams have no end...". The label and name have changed multiple times, including a period as "Were Dreams, now it is just wine!" with a Comet Hale-Bopp on the capsule. The "dot-dot-dot" in the name gives room for personal interpretation, with the winery's being "Where Dreams can happen." The original "Where the Dreams have no end..." label was famously featured in the 1998 Disney film "The Parent Trap."</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-container">
+            <div class="logo-background">
+                <img src="https://s4ng4.github.io/An-Evening-In-Alba/gcaLogo.png" alt="Wine logo" onerror="this.style.display='none'">
+            </div>
+            <div class="chart-container">
+                <h2 class="chart-title">Organoleptic Profile</h2>
+                <div class="chart-row">
+                    <div class="radar-chart">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+                            <text x="200" y="30" font-family="Garamond" font-size="18" fill="#7b0b2d" text-anchor="middle" font-weight="bold">Body and Structure</text>
+                            
+                            <polygon points="200,70 270,110 270,190 200,230 130,190 130,110" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <polygon points="200,90 250,120 250,180 200,210 150,180 150,120" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <polygon points="200,110 230,130 230,170 200,190 170,170 170,130" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            
+                            <line x1="200" y1="150" x2="200" y2="70" stroke="#888888" stroke-width="1"/>
+                            <line x1="200" y1="150" x2="270" y2="190" stroke="#888888" stroke-width="1"/>
+                            <line x1="200" y1="150" x2="270" y2="110" stroke="#888888" stroke-width="1"/>
+                            <line x1="200" y1="150" x2="200" y2="230" stroke="#888888" stroke-width="1"/>
+                            <line x1="200" y1="150" x2="130" y2="190" stroke="#888888" stroke-width="1"/>
+                            <line x1="200" y1="150" x2="130" y2="110" stroke="#888888" stroke-width="1"/>
+                            
+                            <text x="200" y="65" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="middle">Body</text>
+                            <text x="280" y="110" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="start">Tannins</text>
+                            <text x="280" y="190" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="start">Alcohol</text>
+                            <text x="200" y="240" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="middle">Persistence</text>
+                            <text x="120" y="190" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Acidity</text>
+                            <text x="120" y="110" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Complexity</text>
+                            
+                            <polygon points="200,85 200,145 250,180 200,215 170,180 160,130" fill="rgba(224,172,93,0.5)" stroke="#e0ac5d" stroke-width="2"/>
+                            
+                            <circle cx="200" cy="85" r="4" fill="#e0ac5d"/>
+                            <circle cx="200" cy="145" r="4" fill="#e0ac5d"/>
+                            <circle cx="250" cy="180" r="4" fill="#e0ac5d"/>
+                            <circle cx="200" cy="215" r="4" fill="#e0ac5d"/>
+                            <circle cx="170" cy="180" r="4" fill="#e0ac5d"/>
+                            <circle cx="160" cy="130" r="4" fill="#e0ac5d"/>
+                            
+                            <foreignObject x="50%" y="260" width="500" height="50" transform="translate(-250, 0)">
+                                <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; background-color: #ffffff; border: 1px solid #d4af37; border-radius: 5px; padding: 5px 15px; white-space: nowrap; transform: translateX(-50%); position: relative; left: 50%;">
+                                    <div style="display: flex; align-items: center;">
+                                        <div style="width: 10px; height: 10px; background-color: rgba(224,172,93,0.5); border: 1px solid #e0ac5d; margin-right: 10px;"></div>
+                                        <span style="font-family: Garamond; font-size: 12px; color: #2c1e1d;">W...Dreams...</span>
+                                    </div>
+                                </div>
+                            </foreignObject>
+                        </svg>
+                    </div>
+                    
+                    <div class="aroma-chart">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="100%" height="100%">
+                            <text x="200" y="30" font-family="Garamond" font-size="18" fill="#7b0b2d" text-anchor="middle" font-weight="bold">Aromatic Profile</text>
+                            
+                            <rect x="120" y="70" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="105" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="140" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="175" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="210" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="245" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="280" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            
+                            <text x="115" y="87" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Fruity</text>
+                            <text x="115" y="122" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Floral</text>
+                            <text x="115" y="157" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Buttery/Vanilla</text>
+                            <text x="115" y="192" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Spicy</text>
+                            <text x="115" y="227" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Pastry/Oak</text>
+                            <text x="115" y="262" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Mineral</text>
+                            <text x="115" y="297" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Herbal</text>
+                            
+                            <rect x="120" y="70" width="160" height="25" fill="rgba(224,172,93,0.7)"/>
+                            <rect x="120" y="105" width="80" height="25" fill="rgba(224,172,93,0.7)"/>
+                            <rect x="120" y="140" width="140" height="25" fill="rgba(224,172,93,0.7)"/>
+                            <rect x="120" y="175" width="60" height="25" fill="rgba(224,172,93,0.7)"/>
+                            <rect x="120" y="210" width="120" height="25" fill="rgba(224,172,93,0.7)"/>
+                            <rect x="120" y="245" width="100" height="25" fill="rgba(224,172,93,0.7)"/>
+                            <rect x="120" y="280" width="50" height="25" fill="rgba(224,172,93,0.7)"/>
+                            
+                            <text x="120" y="325" font-family="Garamond" font-size="12" fill="#2c1e1d">Low</text>
+                            <text x="220" y="325" font-family="Garamond" font-size="12" fill="#2c1e1d" text-anchor="middle">Medium</text>
+                            <text x="320" y="325" font-family="Garamond" font-size="12" fill="#2c1e1d" text-anchor="end">High</text>
+                            <line x1="120" y1="330" x2="320" y2="330" stroke="#888888" stroke-width="1"/>
+                            <line x1="120" y1="328" x2="120" y2="332" stroke="#888888" stroke-width="1"/>
+                            <line x1="220" y1="328" x2="220" y2="332" stroke="#888888" stroke-width="1"/>
+                            <line x1="320" y1="328" x2="320" y2="332" stroke="#888888" stroke-width="1"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-container">
+            <div class="logo-background">
+                <img src="https://s4ng4.github.io/An-Evening-In-Alba/gcaLogo.png" alt="Wine logo" onerror="this.style.display='none'">
+            </div>
+            <div class="chart-container">
+                <h2 class="chart-title">Tasting Notes</h2>
+                <div class="flavor-profile">
+                    <div class="flavor-category">
+                        <h3>Visual</h3>
+                        <p>A brilliant, sparkling straw-yellow color.</p>
+                    </div>
+                    <div class="flavor-category">
+                        <h3>Olfactory</h3>
+                        <p>Charming and complex with elegant aromas of ripe exotic fruit, melted butter, vanilla, and pastry.</p>
+                    </div>
+                    <div class="flavor-category">
+                        <h3>Gustatory</h3>
+                        <p>Full-bodied and smooth on the palate. Flavors mirror the nose, with fresh and persistent aromatic nuances and a long, satisfying finish.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 - Jermann - W...Dreams.... Consume responsibly.</p>
+    </footer>
+</body>
+</html>
