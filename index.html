@@ -631,7 +631,13 @@
 
     revealElements.forEach(el => observer.observe(el));
 
-    // Wine Modal Logic
+    // Wine Modal Logic-
+     const wineFileMapping = {
+            'pinotGrigio': 'PinotGrigio.html',
+            'ramat': 'Jermann Pinot Grigio Ramat.html',
+            'Dreams': 'jermann W...Dreams....html',
+            'redAngel': Angel.html'
+        };
     const wineDetails = {
         'vintage-tunina': {
             title: 'Vintage Tunina (2021)',
@@ -675,33 +681,42 @@
         const modal = document.getElementById('wine-modal');
     const modalContent = document.getElementById('modal-content-placeholder');
 
-    function openWine(wineKey) {
-        const wine = wineDetails[wineKey];
-        if (!wine) return;
+     function openWine(wineKey) {
+            const wine = wineDetails[wineKey];
+            if (!wine) return;
 
-        modalContent.innerHTML = `
-            <div class="animate-fade-in-up flex flex-col items-center gap-4 sm:gap-6 lg:gap-8">
-                <img src="${wine.image}" alt="${wine.title} bottle" class="w-24 sm:w-28 md:w-32 h-auto object-contain shrink-0 filter drop-shadow-xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDIwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjUwIiB5PSI4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyOTUiIHJ4PSI1MCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPHBhdGggZD0iTTEwMCA4NVY4MEgyMDAiIHN0cm9rZT0iI0QyQTYyNyIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxwYXRoIGQ9Ik0xMDAgODBWODVoLTEwMCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPC9zdmc+">
-                <div class="text-center w-full">
-                    <h4 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-midnight-rock mb-2 leading-tight">${wine.title}</h4>
-                    <p class="text-xs sm:text-sm text-glacier-blue italic mb-3 sm:mb-4 px-2">${wine.notes}</p>
-                    <p class="text-sm sm:text-base text-midnight-rock/70 leading-relaxed mb-4 px-2">${wine.description}</p>
+            modalContent.innerHTML = `
+                <div class="animate-fade-in-up flex flex-col items-center gap-4 sm:gap-6 lg:gap-8">
+                    <img src="${wine.image}" alt="${wine.title} bottle" class="w-24 sm:w-28 md:w-32 h-auto object-contain shrink-0 filter drop-shadow-xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDIwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjUwIiB5PSI4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyOTUiIHJ4PSI1MCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPHBhdGggZD0iTTEwMCA4NVY4MEgyMDAiIHN0cm9rZT0iI0QyQTYyNyIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxwYXRoIGQ9Ik0xMDAgODBWODVoLTEwMCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPC9zdmc+">
+                    <div class="text-center w-full">
+                        <h4 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-espresso mb-2 leading-tight">${wine.title}</h4>
+                        <p class="text-xs sm:text-sm text-rich-brown italic mb-3 sm:mb-4 px-2">${wine.notes}</p>
+                        <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 px-2">${wine.description}</p>
+                    </div>
+                    <button onclick="openTechnicalSheet('${wineKey}')" class="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-primary-gold text-white text-sm sm:text-base font-bold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                        Comprehensive Guide
+                    </button>
                 </div>
-                <button onclick="openWine('dreams')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-midnight-rock luxury-focus">
-                    Explore This Wine
-                </button>
-            </div>
-        `;
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-    }
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
     
     function closeWine() {
         modal.classList.remove('flex');
         modal.classList.add('hidden');
         document.body.style.overflow = 'auto';
     }
+      function openTechnicalSheet(wineKey) {
+            const wineFile = wineFileMapping[wineKey];
+            if (wineFile) {
+                // Open the wine technical sheet in a new tab
+                window.open(wineFile, '_blank');
+            } else {
+                console.error('Wine file not found for key:', wineKey);
+            }
+        }
     
     // Close modal on outside click
     modal.addEventListener('click', (event) => {
@@ -710,7 +725,7 @@
         }
     });
 
-    // Carousel Logic
+    // Carousel Logic-
     let currentSlide = 0;
     const track = document.querySelector('.carousel-track');
     const slides = document.querySelectorAll('.carousel-item');
