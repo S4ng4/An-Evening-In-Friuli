@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jermann W...Dreams... - Technical Sheet</title>
+    <title>Jermann Dreams Chardonnay - Technical Sheet</title>
     <style>
         body {
             font-family: 'Garamond', serif;
@@ -14,7 +14,7 @@
             line-height: 1.6;
         }
         header {
-            background-color:#d4af37;
+            background-color: #9c7c5a;
             color: #ffffff;
             padding: 15px;
             text-align: center;
@@ -57,7 +57,7 @@
             filter: grayscale(1%) brightness(0.7);
         }
         .wine-info h1 {
-            color: #d4af37;
+            color: #9c7c5a;
             margin-top: 0;
             border-bottom: 2px solid #d4af37;
             padding-bottom: 10px;
@@ -66,7 +66,7 @@
             font-style: italic;
             font-weight: normal;
             margin-top: 5px;
-            color: #d4af37;
+            color: #7a6147;
         }
         .specs {
             display: grid;
@@ -78,7 +78,7 @@
         }
         .spec-item strong {
             min-width: 120px;
-            color: #d4af37;
+            color: #9c7c5a;
         }
         .chart-container {
             position: relative;
@@ -93,7 +93,7 @@
             z-index: 3;
         }
         .chart-title {
-            color: #d4af37;
+            color: #9c7c5a;
             text-align: center;
             margin-top: 0;
             margin-bottom: 20px;
@@ -124,12 +124,12 @@
             padding: 10px;
         }
         .flavor-category h3 {
-            color: #d4af37;
+            color: #9c7c5a;
             margin-top: 0;
         }
         footer {
-            background-color: #d4af37;
-            color: black;
+            background-color: #7a6147;
+            color: #d4af37;
             text-align: center;
             padding: 15px;
             margin-top: 20px;
@@ -137,12 +137,22 @@
         .wine-type-indicator {
             display: inline-block;
             padding: 5px 10px;
-            background-color: #d4af37;
-            color: white;
+            background-color: #9c7c5a; 
+            color: #fff;
             border-radius: 4px;
             font-size: 12px;
             margin-left: 10px;
             vertical-align: middle;
+        }
+        .special-label {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #7a6147;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
         }
         .extra-info {
             grid-column: span 2;
@@ -151,11 +161,18 @@
             margin-top: 10px;
         }
         .extra-info h3 {
-            color: #d4af37;
+            color: #9c7c5a;
             margin-top: 0;
         }
         .extra-info p {
             font-size: 14px;
+        }
+        .quote {
+            font-style: italic;
+            color: #7a6147;
+            border-left: 2px solid #d4af37;
+            padding-left: 15px;
+            margin: 15px 0;
         }
         
         /* Media queries for mobile version */
@@ -187,7 +204,7 @@
 </head>
 <body>
     <header>
-        <h1>Jermann - W...Dreams... <span class="wine-type-indicator">White</span></h1>
+        <h1>Jermann - 'Dreams' Chardonnay <span class="wine-type-indicator">White</span> <span class="special-label">Iconic</span></h1>
     </header>
     
     <div class="content">
@@ -197,54 +214,95 @@
             </div>
             <div class="wine-card">
                 <div class="wine-info">
-                    <h1>W...Dreams...</h1>
-                    <h2>Jermann</h2>
+                    <h1>Dreams Chardonnay</h1>
+                    <h2>Venezia Giulia IGT - 2022</h2>
                     <div class="specs">
                         <div class="spec-item">
                             <strong>Producer:</strong>
-                            <span>Jermann</span>
+                            <span>Jermann Winery</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Proprietor:</strong>
+                            <span>Silvio Jermann</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Winemaker:</strong>
+                            <span>Luca Belluzzo</span>
                         </div>
                         <div class="spec-item">
                             <strong>Grapes:</strong>
-                            <span>97% Chardonnay</span>
+                            <span>97% Chardonnay, 3% family secret</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Denomination:</strong>
+                            <span>Venezia Giulia IGT</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Region:</strong>
+                            <span>Friuli, Italy</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Vineyards:</strong>
+                            <span>Farra d'Isonzo, Dolegna del Collio</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Elevation:</strong>
+                            <span>90m</span>
                         </div>
                         <div class="spec-item">
                             <strong>Soil:</strong>
-                            <span>Marly sandstone</span>
+                            <span>Marl, sandstone ('Ponca')</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Vine Age:</strong>
+                            <span>28 years</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Farming:</strong>
+                            <span>Dry farmed, manual harvest</span>
                         </div>
                         <div class="spec-item">
                             <strong>Alcohol Content:</strong>
                             <span>13%</span>
                         </div>
                         <div class="spec-item">
+                            <strong>Acidity & pH:</strong>
+                            <span>6.1 g/L & 3.27</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Residual Sugar:</strong>
+                            <span>0.48 g/L</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Production:</strong>
+                            <span>50,000 bottles</span>
+                        </div>
+                        <div class="spec-item">
                             <strong>Aging:</strong>
-                            <span>In small 300-litre French oak barrels</span>
-                        </div>
-                        <div class="spec-item">
-                            <strong>Acidity:</strong>
-                            <span>5.60 - 6.40 %</span>
-                        </div>
-                        <div class="spec-item">
-                            <strong>Bottle Type:</strong>
-                            <span>Traditional Borgognotta</span>
-                        </div>
-                        <div class="spec-item">
-                            <strong>Closure:</strong>
-                            <span>Screw cap since 2011 vintage</span>
-                        </div>
-                        <div class="spec-item">
-                            <strong>Shelf Life:</strong>
-                            <span>8 to 10 years</span>
+                            <span>11 months on lees in used French 300L barrels</span>
                         </div>
                     </div>
                 </div>
                 <div class="wine-summary">
                     <h3>About the Wine</h3>
-                    <p>A wine born from dreams, made with 97% Chardonnay grapes. The aging in small French oak barrels gives it a remarkable complexity and structure. A wine that has evolved over the years, from its name to its closure, always maintaining its character and quality. The screw cap is a recent choice made to ensure the wine's quality is preserved over its long life.</p>
+                    <p>'Dreams' is Jermann's iconic barrel-fermented Chardonnay, first released in 1987. The name references the song 'Where Dreams Have No End' from U2's album The Joshua Tree. This wine represents the pinnacle of Jermann's white winemaking, with a small percentage of a "family secret" blend adding to its unique character.</p>
+                    
+                    <div class="quote">
+                        "Winter was mild with above average temperatures, which allowed us to close pruning operations in mid-March. Flowering was earlier and was concomitant on almost all varieties and concentrated in a few days. Summer was dry with low rainfall. Our vineyards, that are located in very suitable areas, naturally limited the effects of drought and allowed the grapes to ripen optimally through harvest."
+                    </div>
+                    
+                    <h3>Vinification</h3>
+                    <p>Fermentation: Natural fermentation in stainless steel, no malolactic fermentation. Filtered and fined. Made with no animal byproducts (not certified in the US).</p>
+                    
+                    <h3>Tasting Notes</h3>
+                    <p>This Chardonnay shows exceptional complexity with notes of ripe stone fruits, citrus, and subtle oak influences from barrel aging. The absence of malolactic fermentation preserves the wine's fresh acidity, creating a perfect balance between richness and vibrancy.</p>
                 </div>
                 <div class="extra-info">
-                    <h3>History and Trivia</h3>
-                    <p>Dedicated to U2's "The Joshua Tree" album, the wine was first made in 1987 as "Where the Dreams have no end...". The label and name have changed multiple times, including a period as "Were Dreams, now it is just wine!" with a Comet Hale-Bopp on the capsule. The "dot-dot-dot" in the name gives room for personal interpretation, with the winery's being "Where Dreams can happen." The original "Where the Dreams have no end..." label was famously featured in the 1998 Disney film "The Parent Trap."</p>
+                    <h3>Winery History</h3>
+                    <p>Jermann Winery was founded in 1881. Silvio Jermann is one of the most influential winemakers in Italy, turning his family's modest farm into a hallmark winery in Friuli. The winery is located at 45°59'19"N 13°28'09"E.</p>
+                    
+                    <h3>The 'Dreams' Legacy</h3>
+                    <p>First produced in 1987, 'Dreams' revolutionized Italian white winemaking by introducing techniques that emphasized both fruit purity and complexity through careful oak integration. It remains one of Italy's most celebrated and sought-after Chardonnays.</p>
                 </div>
             </div>
         </div>
@@ -258,7 +316,7 @@
                 <div class="chart-row">
                     <div class="radar-chart">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
-                            <text x="200" y="30" font-family="Garamond" font-size="18" fill="#7b0b2d" text-anchor="middle" font-weight="bold">Body and Structure</text>
+                            <text x="200" y="30" font-family="Garamond" font-size="18" fill="#9c7c5a" text-anchor="middle" font-weight="bold">Body and Structure</text>
                             
                             <polygon points="200,70 270,110 270,190 200,230 130,190 130,110" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
                             <polygon points="200,90 250,120 250,180 200,210 150,180 150,120" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
@@ -272,26 +330,26 @@
                             <line x1="200" y1="150" x2="130" y2="110" stroke="#888888" stroke-width="1"/>
                             
                             <text x="200" y="65" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="middle">Body</text>
-                            <text x="280" y="110" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="start">Tannins</text>
+                            <text x="280" y="110" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="start">Texture</text>
                             <text x="280" y="190" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="start">Alcohol</text>
                             <text x="200" y="240" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="middle">Persistence</text>
                             <text x="120" y="190" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Acidity</text>
                             <text x="120" y="110" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Complexity</text>
                             
-                            <polygon points="200,85 200,145 250,180 200,215 170,180 160,130" fill="rgba(224,172,93,0.5)" stroke="#e0ac5d" stroke-width="2"/>
+                            <polygon points="200,150 250,160 260,190 200,220 140,190 150,160" fill="rgba(156,124,90,0.5)" stroke="#9c7c5a" stroke-width="2"/>
                             
-                            <circle cx="200" cy="85" r="4" fill="#e0ac5d"/>
-                            <circle cx="200" cy="145" r="4" fill="#e0ac5d"/>
-                            <circle cx="250" cy="180" r="4" fill="#e0ac5d"/>
-                            <circle cx="200" cy="215" r="4" fill="#e0ac5d"/>
-                            <circle cx="170" cy="180" r="4" fill="#e0ac5d"/>
-                            <circle cx="160" cy="130" r="4" fill="#e0ac5d"/>
+                            <circle cx="200" cy="150" r="4" fill="#9c7c5a"/>
+                            <circle cx="250" cy="160" r="4" fill="#9c7c5a"/>
+                            <circle cx="260" cy="190" r="4" fill="#9c7c5a"/>
+                            <circle cx="200" cy="220" r="4" fill="#9c7c5a"/>
+                            <circle cx="140" cy="190" r="4" fill="#9c7c5a"/>
+                            <circle cx="150" cy="160" r="4" fill="#9c7c5a"/>
                             
                             <foreignObject x="50%" y="260" width="500" height="50" transform="translate(-250, 0)">
                                 <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; background-color: #ffffff; border: 1px solid #d4af37; border-radius: 5px; padding: 5px 15px; white-space: nowrap; transform: translateX(-50%); position: relative; left: 50%;">
                                     <div style="display: flex; align-items: center;">
-                                        <div style="width: 10px; height: 10px; background-color: rgba(224,172,93,0.5); border: 1px solid #e0ac5d; margin-right: 10px;"></div>
-                                        <span style="font-family: Garamond; font-size: 12px; color: #2c1e1d;">W...Dreams...</span>
+                                        <div style="width: 10px; height: 10px; background-color: rgba(156,124,90,0.5); border: 1px solid #9c7c5a; margin-right: 10px;"></div>
+                                        <span style="font-family: Garamond; font-size: 12px; color: #2c1e1d;">Dreams Chardonnay 2022</span>
                                     </div>
                                 </div>
                             </foreignObject>
@@ -300,7 +358,7 @@
                     
                     <div class="aroma-chart">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="100%" height="100%">
-                            <text x="200" y="30" font-family="Garamond" font-size="18" fill="#7b0b2d" text-anchor="middle" font-weight="bold">Aromatic Profile</text>
+                            <text x="200" y="30" font-family="Garamond" font-size="18" fill="#9c7c5a" text-anchor="middle" font-weight="bold">Aromatic Profile</text>
                             
                             <rect x="120" y="70" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
                             <rect x="120" y="105" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
@@ -311,20 +369,20 @@
                             <rect x="120" y="280" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
                             
                             <text x="115" y="87" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Fruity</text>
-                            <text x="115" y="122" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Floral</text>
-                            <text x="115" y="157" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Buttery/Vanilla</text>
-                            <text x="115" y="192" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Spicy</text>
-                            <text x="115" y="227" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Pastry/Oak</text>
-                            <text x="115" y="262" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Mineral</text>
-                            <text x="115" y="297" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Herbal</text>
+                            <text x="115" y="122" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Citrus</text>
+                            <text x="115" y="157" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Mineral</text>
+                            <text x="115" y="192" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Oak</text>
+                            <text x="115" y="227" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Floral</text>
+                            <text x="115" y="262" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Spice</text>
+                            <text x="115" y="297" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Freshness</text>
                             
-                            <rect x="120" y="70" width="160" height="25" fill="rgba(224,172,93,0.7)"/>
-                            <rect x="120" y="105" width="80" height="25" fill="rgba(224,172,93,0.7)"/>
-                            <rect x="120" y="140" width="140" height="25" fill="rgba(224,172,93,0.7)"/>
-                            <rect x="120" y="175" width="60" height="25" fill="rgba(224,172,93,0.7)"/>
-                            <rect x="120" y="210" width="120" height="25" fill="rgba(224,172,93,0.7)"/>
-                            <rect x="120" y="245" width="100" height="25" fill="rgba(224,172,93,0.7)"/>
-                            <rect x="120" y="280" width="50" height="25" fill="rgba(224,172,93,0.7)"/>
+                            <rect x="120" y="70" width="170" height="25" fill="rgba(156,124,90,0.7)"/>
+                            <rect x="120" y="105" width="160" height="25" fill="rgba(156,124,90,0.7)"/>
+                            <rect x="120" y="140" width="150" height="25" fill="rgba(156,124,90,0.7)"/>
+                            <rect x="120" y="175" width="130" height="25" fill="rgba(156,124,90,0.7)"/>
+                            <rect x="120" y="210" width="120" height="25" fill="rgba(156,124,90,0.7)"/>
+                            <rect x="120" y="245" width="110" height="25" fill="rgba(156,124,90,0.7)"/>
+                            <rect x="120" y="280" width="160" height="25" fill="rgba(156,124,90,0.7)"/>
                             
                             <text x="120" y="325" font-family="Garamond" font-size="12" fill="#2c1e1d">Low</text>
                             <text x="220" y="325" font-family="Garamond" font-size="12" fill="#2c1e1d" text-anchor="middle">Medium</text>
@@ -348,15 +406,15 @@
                 <div class="flavor-profile">
                     <div class="flavor-category">
                         <h3>Visual</h3>
-                        <p>A brilliant, sparkling straw-yellow color.</p>
+                        <p>Brilliant golden yellow color with greenish reflections, indicating its excellent structure and aging potential.</p>
                     </div>
                     <div class="flavor-category">
                         <h3>Olfactory</h3>
-                        <p>Charming and complex with elegant aromas of ripe exotic fruit, melted butter, vanilla, and pastry.</p>
+                        <p>Complex bouquet of ripe peach, apricot, and citrus fruits, with subtle notes of vanilla, toasted almonds, and delicate floral hints. The oak integration is impeccable, adding depth without overpowering the fruit.</p>
                     </div>
                     <div class="flavor-category">
                         <h3>Gustatory</h3>
-                        <p>Full-bodied and smooth on the palate. Flavors mirror the nose, with fresh and persistent aromatic nuances and a long, satisfying finish.</p>
+                        <p>Rich and creamy on the palate with a beautiful balance between ripe fruit flavors and refreshing acidity. Notes of baked apple, pear, and citrus are complemented by subtle oak spices. The finish is long and persistent, with mineral undertones that speak to its terroir.</p>
                     </div>
                 </div>
             </div>
@@ -364,7 +422,7 @@
     </div>
     
     <footer>
-        <p>&copy; 2025 - Jermann - W...Dreams.... Consume responsibly.</p>
+        <p>&copy; 2024 - Jermann - 'Dreams' Chardonnay. Consume responsibly.</p>
     </footer>
 </body>
 </html>
