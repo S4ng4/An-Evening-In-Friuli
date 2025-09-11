@@ -44,6 +44,9 @@
                     'gradient-shift': 'gradientShift 8s ease-in-out infinite',
                     'glow': 'glow 2s ease-in-out infinite alternate',
                     'shimmer': 'shimmer 2s linear infinite',
+                    'bubble-rise': 'bubbleRise 8s linear infinite',
+                    'bubble-rise-slow': 'bubbleRise 12s linear infinite',
+                    'bubble-rise-fast': 'bubbleRise 6s linear infinite',
                 },
                 keyframes: {
                     float: {
@@ -77,6 +80,22 @@
                     shimmer: {
                         '0%': { backgroundPosition: '-200% center' },
                         '100%': { backgroundPosition: '200% center' }
+                    },
+                    bubbleRise: {
+                        '0%': { 
+                            transform: 'translateY(100vh) translateX(0px) scale(0.5)',
+                            opacity: '0'
+                        },
+                        '10%': { 
+                            opacity: '0.8'
+                        },
+                        '90%': { 
+                            opacity: '0.6'
+                        },
+                        '100%': { 
+                            transform: 'translateY(-100px) translateX(50px) scale(1.2)',
+                            opacity: '0'
+                        }
                     }
                 },
                 backdropBlur: {
@@ -355,7 +374,7 @@
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="#menu" class="text-midnight-rock/90 hover:text-alpine-sunrise transition-colors duration-300">Menu</a>
                 <a href="#wines" class="text-midnight-rock/90 hover:text-alpine-sunrise transition-colors duration-300">Wines</a>
-                <a href="#experience" class="text-midnight-rock/90 hover:text-alpine-sunrise transition-colors duration-300">Experience</a>
+                <a href="#experience" class="text-midnight-rock/90 hover:text-alpine-sunrise transition-colors duration-300"></a>
             </div>
             
             <div class="flex items-center">
@@ -371,18 +390,28 @@
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden pattern-dots" style="padding-top: calc(4rem + var(--safe-area-top));">
     <div class="absolute inset-0 bg-hero-gradient animate-gradient-shift bg-[length:200%_200%]"></div>
     
-    <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute top-20 left-10 w-2 h-2 bg-alpine-sunrise/30 rounded-full animate-float"></div>
-        <div class="absolute top-40 right-20 w-3 h-3 bg-alpine-sunrise/20 rounded-full animate-float" style="animation-delay: 1s;"></div>
-        <div class="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-alpine-sunrise/40 rounded-full animate-float" style="animation-delay: 2s;"></div>
-        <div class="absolute top-1/2 right-1/3 w-2.5 h-2.5 bg-alpine-sunrise/25 rounded-full animate-float" style="animation-delay: 3s;"></div>
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <!-- Particelle fluttuanti che risalgono dal fondo -->
+        <div class="absolute bottom-0 left-1/4 w-3 h-3 rounded-full animate-bubble-rise" style="background-color: #3a4127; animation-delay: 0s;"></div>
+        <div class="absolute bottom-0 left-1/3 w-2 h-2 rounded-full animate-bubble-rise-slow" style="background-color: #3a4127; animation-delay: 1s;"></div>
+        <div class="absolute bottom-0 left-1/2 w-4 h-4 rounded-full animate-bubble-rise-fast" style="background-color: #3a4127; animation-delay: 2s;"></div>
+        <div class="absolute bottom-0 left-2/3 w-2.5 h-2.5 rounded-full animate-bubble-rise" style="background-color: #3a4127; animation-delay: 3s;"></div>
+        <div class="absolute bottom-0 left-3/4 w-3.5 h-3.5 rounded-full animate-bubble-rise-slow" style="background-color: #3a4127; animation-delay: 4s;"></div>
+        <div class="absolute bottom-0 left-1/6 w-1.5 h-1.5 rounded-full animate-bubble-rise-fast" style="background-color: #3a4127; animation-delay: 5s;"></div>
+        <div class="absolute bottom-0 left-5/6 w-2 h-2 rounded-full animate-bubble-rise" style="background-color: #3a4127; animation-delay: 6s;"></div>
+        <div class="absolute bottom-0 left-1/8 w-3 h-3 rounded-full animate-bubble-rise-slow" style="background-color: #3a4127; animation-delay: 7s;"></div>
+        <div class="absolute bottom-0 left-7/8 w-2.5 h-2.5 rounded-full animate-bubble-rise-fast" style="background-color: #3a4127; animation-delay: 8s;"></div>
+        <div class="absolute bottom-0 left-1/12 w-1 h-1 rounded-full animate-bubble-rise" style="background-color: #3a4127; animation-delay: 9s;"></div>
+        <div class="absolute bottom-0 left-11/12 w-4 h-4 rounded-full animate-bubble-rise-slow" style="background-color: #3a4127; animation-delay: 10s;"></div>
+        <div class="absolute bottom-0 left-1/5 w-2 h-2 rounded-full animate-bubble-rise-fast" style="background-color: #3a4127; animation-delay: 11s;"></div>
+        <div class="absolute bottom-0 left-4/5 w-3 h-3 rounded-full animate-bubble-rise" style="background-color: #3a4127; animation-delay: 12s;"></div>
     </div>
     
     <div class="relative z-10 text-center text-midnight-rock px-4 max-w-6xl mx-auto">
         <div class="reveal">
             <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-6 leading-tight text-shadow-gold">
-                A Friulian Evening
-                <span class="block text-alpine-sunrise animate-glow">With Jermann</span>
+                A Friady Night in  Friuli
+                <span class="block text-alpine-sunrise animate-glow">With  Felix Jermann</span>
             </h1>
         </div>
         
@@ -406,22 +435,26 @@
     </div>
 </section>
 
-<section id="wines" class="py-16 lg:py-24 bg-gradient-to-br from-firmament-blue to-glacier-blue text-glacial-white relative overflow-hidden">
+<section id="wines" class="py-16 lg:py-24 text-glacial-white relative overflow-hidden" style="background-color: #3a4127;">
     <div class="absolute inset-0 pattern-dots opacity-20"></div>
     
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative" style="padding-left: max(16px, var(--safe-area-left)); padding-right: max(16px, var(--safe-area-right));">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 reveal">
-                <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl mb-6 text-shadow-gold">Jermann</h2>
+                <div class="flex justify-center mb-6">
+                    <img src="jermann-logo.png" 
+                         alt="Jermann" 
+                         class="h-16 sm:h-20 lg:h-24 w-auto object-contain"
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMTI4IDMyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjMyIiBmaWxsPSIjRjVGMURDIi8+CjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjgiIGZpbGw9IiNFMEI1ODMiLz4KPHBhdGggZD0iTTQ4IDEySDY0TTQ4IDE2SDY0TTQ4IDIwSDY0IiBzdHJva2U9IiM0QTY1NzIiIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNODAgMTJIMTEyTTgwIDE2SDExMk04MCAyMEgxMTIiIHN0cm9rZT0iIzRBNjU3MiIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPg=='">
+                </div>
                 <div class="w-24 h-1 bg-gradient-to-r from-alpine-sunrise to-dolomite-silver mx-auto mb-6 rounded-full"></div>
-                <p class="text-xl lg:text-2xl text-alpine-sunrise font-light">Italy's Premier White Wine Producer</p>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div class="space-y-6 reveal animate-slide-in-left">
                     <p class="text-lg lg:text-xl leading-relaxed opacity-90">
                         Since 1881, the Jermann family has been crafting exceptional wines in Friuli-Venezia Giulia, 
-                        Italy's northeastern region known for its distinctive white wines.
+                        Italy's northeastern region known for its distinctive white wines.Tonight, Felix Jermann will tell the story of his Family's Wines.
                     </p>
                     <p class="text-lg lg:text-xl leading-relaxed opacity-90">
                         Experience the authentic flavors of Friuli through perfect pairings crafted 
@@ -441,8 +474,8 @@
                     </div>
                 </div>
                 
-                <div class="w-full relative reveal animate-slide-in-right">
-                    <div class="carousel-container rounded-2xl shadow-lg" id="wine-carousel">
+                <div class="w-full relative reveal animate-slide-in-right" style="background-color: #3a4127; padding: 20px; border-radius: 16px;">
+                    <div class="carousel-container rounded-2xl shadow-lg" id="wine-carousel" style="background-color: #3a4127;">
                         <div class="carousel-track" id="carousel-track">
                             <div class="carousel-item">
                                 <img src="botti.jpg" alt="Jermann Vineyard" class="w-full h-80 object-cover rounded-2xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjNEE2NTcyIi8+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjIwMCIgcj0iODAiIGZpbGw9IiM3RkEwQjMiLz4KPHBhdGggZD0iTTI0MCAyMDBIMzYwIiBzdHJva2U9IiNFMEI1ODMiIHN0cm9rZS13aWR0aD0iOCIvPgo8L3N2Zz4K'">
@@ -454,13 +487,13 @@
                                 <img src="villanova_05.jpg" alt="Jermann Wine Bottles" class="w-full h-80 object-cover rounded-2xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGQkZGIi8+CjxyZWN0IHg9IjE1MCIgeT0iODAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiM0QTY1NzIiLz4KPHJlY3QgeD0iMjIwIiB5PSI4MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjI0MCIgZmlsbD0iIzRBNjU3MiIvPgo8cmVjdCB4PSIyOTAiIHk9IjgwIiB3aWR0aD0iNDAiIGhlaWdodD0iMjQwIiBmaWxsPSIjNEE2NTcyIi8+CjxyZWN0IHg9IjM2MCIgeT0iODAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiM0QTY1NzIiLz4KPC9zdmc+Cg=='">
                             </div>
                             <div class="carousel-item">
-                                <img src="cantina_villanova_21.jpg" alt="Jermann Pinot Grigio" class="w-full h-80 object-cover rounded-2xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGQkZGIi8+CjxyZWN0IHg9IjI1MCIgeT0iODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMjQwIiByeD0iNTAiIGZpbGw9IiM0QTY1NzIiLz4KPHBhdGggZD0iTTMwMCA4MFY2MEg0MDAiIHN0cm9rZT0iI0Q0QUYzNyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Ik0zMDAgODBWMTIwSDQwMCIgc3Ryb2tlPSIjRDhCNzMzIiBzdHJva2Utd2lkdGg9IjQiLz4KPC9zdmc+Cg=='">
+                                <img src="Felix-Family.jpg" alt="Jermann Pinot Grigio" class="w-full h-80 object-cover rounded-2xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGQkZGIi8+CjxyZWN0IHg9IjI1MCIgeT0iODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMjQwIiByeD0iNTAiIGZpbGw9IiM0QTY1NzIiLz4KPHBhdGggZD0iTTMwMCA4MFY2MEg0MDAiIHN0cm9rZT0iI0Q0QUYzNyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Ik0zMDAgODBWMTIwSDQwMCIgc3Ryb2tlPSIjRDhCNzMzIiBzdHJva2Utd2lkdGg9IjQiLz4KPC9zdmc+Cg=='">
                         </div>
                             <div class="carousel-item">
                                 <img src="botti1.jpg" alt="Jermann Ramat Pinot Grigio" class="w-full h-80 object-cover rounded-2xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGQkZGIi8+CjxyZWN0IHg9IjI1MCIgeT0iODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMjQwIiByeD0iNTAiIGZpbGw9IiM4QjQ1MTMiLz4KPHBhdGggZD0iTTMwMCA4MFY2MEg0MDAiIHN0cm9rZT0iI0Q0QUYzNyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Ik0zMDAgODBWMTIwSDQwMCIgc3Ryb2tlPSIjQjhDNzMzIiBzdHJva2Utd2lkdGg9IjQiLz4KPC9zdmc+Cg=='">
                             </div>
                             <div class="carousel-item">
-                                <img src="cantina_ruttars_21.jpg"Jermann Pinot Noir Red Angel" class="w-full h-80 object-cover rounded-2xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGQkZGIi8+CjxyZWN0IHg9IjI1MCIgeT0iODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMjQwIiByeD0iNTAiIGZpbGw9IiM4MDAwMjAiLz4KPHBhdGggZD0iTTMwMCA4MFY2MEg0MDAiIHN0cm9rZT0iI0Q0QUYzNyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Ik0zMDAgODBWMTIwSDQwMCIgc3Ryb2tlPSIjQjhDNzMzIiBzdHJva2Utd2lkdGg9IjQiLz4KPC9zdmc+Cg=='">
+                                <img src="cantina_ruttars_21.jpg" alt="Jermann Pinot Noir Red Angel" class="w-full h-80 object-cover rounded-2xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGQkZGIi8+CjxyZWN0IHg9IjI1MCIgeT0iODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMjQwIiByeD0iNTAiIGZpbGw9IiM4MDAwMjAiLz4KPHBhdGggZD0iTTMwMCA4MFY2MEg0MDAiIHN0cm9rZT0iI0Q0QUYzNyIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxwYXRoIGQ9Ik0zMDAgODBWMTIwSDQwMCIgc3Ryb2tlPSIjQjhDNzMzIiBzdHJva2Utd2lkdGg9IjQiLz4KPC9zdmc+Cg=='">
                         </div>
                         </div>
                         
@@ -502,17 +535,27 @@
                     <h3 class="font-serif text-2xl text-midnight-rock mb-3">APERITIVO</h3>
                     <h4 class="font-semibold text-glacier-blue text-lg mb-4">TAGLIERE FRIULANO</h4>
                     <p class="text-gray-700 leading-relaxed mb-6">
-                        Prosciutto San Daniele, local Montasio cheese, & frico friulian potato/cheese pancake, fig jam & chestnut honey
+                        Prosciutto San Daniele, local Montasio cheese, & frico friulian, fig jam & chestnut honey
                     </p>
                     <div class="glass rounded-xl p-4 mb-6">
-                        <div class="text-xs text-glacier-blue font-semibold mb-2 uppercase tracking-wider">Wine Pairing</div>
+                        <div class="text-xs font-semibold mb-2 uppercase tracking-wider" style="color: #3a4127;">Wine Pairing</div>
                         <div class="font-serif text-midnight-rock text-lg mb-1">Pinot Grigio, Jermann</div>
                         <div class="text-sm text-gray-600 italic">Pinot Grigio made by Italy's premier white wine maker. Beautifully structured notes of citrus, apple, white peach & mineral</div>
                                 </div>
                             </div>
-                <button onclick="openWine('pinot-grigio')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-midnight-rock luxury-focus">
+                <button onclick="openWine('pinot-grigio')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold luxury-focus" style="color: #3a4127;">
                     Explore This Wine
                 </button>
+                <div class="glass rounded-xl p-4 mb-6">
+                        <div class="text-xs font-semibold mb-2 uppercase tracking-wider" style="color: #3a4127;">Wine Pairing</div>
+                        <div class="font-serif text-midnight-rock text-lg mb-1">Ramat Pinot Grigio, Jermann</div>
+                        <div class="text-sm text-gray-600 italic">Single vineyard skin conctac pinot grigio.Rich notes of dried orchard fruit,wild flowers & a mineral edge</div>
+                                </div>
+                            </div>
+                <button onclick="openWine('ramat-pinot-grigio')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold luxury-focus" style="color: #3a4127;">
+                    Explore This Wine
+                </button>
+                
                         </div>
                         
             <!-- ASSAGGI -->
@@ -524,12 +567,12 @@
                         Jumbo potato and Grana Padano gnocchi stuffed with fresh plums and topped with brown butter and a touch of cinnamon
                     </p>
                     <div class="glass rounded-xl p-4 mb-6">
-                        <div class="text-xs text-glacier-blue font-semibold mb-2 uppercase tracking-wider">Wine Pairing</div>
-                        <div class="font-serif text-midnight-rock text-lg mb-1">Ramat Pinot Grigio, Jermann</div>
-                        <div class="text-sm text-gray-600 italic">Refined single vineyard expression of skin contact Pinot Grigio. Rich notes of dried orchard fruit, wild flowers and a distinct mineral edge</div>
+                        <div class="text-xs font-semibold mb-2 uppercase tracking-wider" style="color: #3a4127;">Wine Pairing</div>
+                        <div class="font-serif text-midnight-rock text-lg mb-1">Vintage Tunina, Jermann</div>
+                        <div class="text-sm text-gray-600 italic">Signature blend of Friulian and international grapes.Persistent notes of honeysuckle, peaches, pear, and herbs with hints of vanilla and mineral</div>
                                 </div>
                             </div>
-                <button onclick="openWine('ramat-pinot-grigio')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-midnight-rock luxury-focus">
+                <button onclick="openWine('vintage-tunina')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold luxury-focus" style="color: #3a4127;">
                     Explore This Wine
                 </button>
                         </div>
@@ -543,31 +586,40 @@
                         Iconic hand rolled ravioli of Friuli stuffed with a mix of smoked ricotta, potato, pancetta & amaretti. Topped with Grana Padano-butter
                     </p>
                     <div class="glass rounded-xl p-4 mb-6">
-                        <div class="text-xs text-glacier-blue font-semibold mb-2 uppercase tracking-wider">Wine Pairing</div>
+                        <div class="text-xs font-semibold mb-2 uppercase tracking-wider" style="color: #3a4127;">Wine Pairing</div>
                         <div class="font-serif text-midnight-rock text-lg mb-1">Dreams, Jermann</div>
                         <div class="text-sm text-gray-600 italic">Arguably the finest Chardonnay produced in Italy. Complex and elegant notes of creme brulee, ripe exotic fruit, refined citrus, stone fruit, layered pastry & poetic minerality</div>
                                 </div>
                             </div>
-                <button onclick="openWine('dreams')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-midnight-rock luxury-focus">
+                <button onclick="openWine('dreams')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold luxury-focus" style="color: #3a4127;">
                     Explore This Wine
                 </button>
                         </div>
-                        
+            <!-- INTERMEZZO -->
+                        <div class="course-card relative glass rounded-2xl p-8 lg:p-12 shadow-2xl hover-lift reveal" style="background-color: rgba(58, 65, 39, 0.8); color: white; backdrop-filter: blur(10px);">
+    <div class="text-center">
+        <h3 class="font-serif text-2xl lg:text-3xl mb-4">Sorbetto al Jermann Vintage Tunina</h3>
+        <div class="w-32 h-0.5 bg-alpine-sunrise mx-auto mb-4 rounded-full"></div>
+        <p class="text-lg opacity-90">
+            To cleanse the palate by Italian Gelato Champion Stefano Biasini
+        </p>
+    </div>
+</div>
             <!-- SECONDO -->
             <div class="course-card relative bg-gradient-to-br from-cream to-beige rounded-2xl p-6 lg:p-8 shadow-2xl border-2 border-primary-gold/30 hover-lift reveal">
                 <div class="mb-6">
                     <h3 class="font-serif text-2xl text-midnight-rock mb-3">SECONDO</h3>
                     <h4 class="font-semibold text-glacier-blue text-lg mb-4">GULASCH AL RED ANGEL</h4>
                     <p class="text-gray-700 leading-relaxed mb-6">
-                        A dish that demonstrates the Austria-Hungary influence on Friuli's cuisine. Slow braised beef stew with onions, tomato, paprika & garlic simmered with Jermann Pinot Noir & served with polenta
+                        A dish that demonstrates the Austro-Hungarian influence on Friuli's cuisine. Slow braised beef stew with onions, tomato, paprika & garlic simmered with Jermann Pinot Noir & served with polenta
                     </p>
                     <div class="glass rounded-xl p-4 mb-6">
-                        <div class="text-xs text-glacier-blue font-semibold mb-2 uppercase tracking-wider">Wine Pairing</div>
+                        <div class="text-xs font-semibold mb-2 uppercase tracking-wider" style="color: #3a4127;">Wine Pairing</div>
                         <div class="font-serif text-midnight-rock text-lg mb-1">Pinot Noir Red Angel, Jermann</div>
                         <div class="text-sm text-gray-600 italic">Well-orchestrated, slightly herbaceous, with notes of frutti di bosco & spice. Displays elegance, finesse, with excellent balance</div>
                                 </div>
                             </div>
-                <button onclick="openWine('pinot-noir-red-angel')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold text-midnight-rock luxury-focus">
+                <button onclick="openWine('pinot-noir-red-angel')" class="btn-luxury w-full py-3 px-6 rounded-xl text-sm font-semibold luxury-focus" style="color: #3a4127;">
                     Explore This Wine
                 </button>
                 </div>
@@ -578,11 +630,10 @@
                     <h3 class="font-serif text-2xl text-midnight-rock mb-3">DOLCE</h3>
                     <h4 class="font-semibold text-glacier-blue text-lg mb-4">STRUDEL AL JERMANN DREAMS</h4>
                     <p class="text-gray-700 leading-relaxed mb-6">
-                        Apple strudel gelato by Italian gelato champion Stefano Biasini served over a Jermann Dreams Chardonnay infused deconstructed warm apple strudel, accents of raisins, cinnamon & walnuts
+                        Apple strudel gelato by Italian gelato champion Stefano Biasini infused with Jermann Dreams Chardonnay macerated apples, accented with walnuts, raisons and cinnamon.
                     </p>
-                   
-                        </div>
-                        </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -631,13 +682,13 @@
 
     revealElements.forEach(el => observer.observe(el));
 
-    // Wine Modal Logic-
-     const wineFileMapping = {
-            'pinotGrigio': 'PinotGrigio.html',
-            'ramat': 'Jermann Pinot Grigio Ramat.html',
-            'Dreams': 'jermann W...Dreams....html',
-            'redAngel': Angel.html'
-        };
+    // Wine Modal Logic
+    const wineFileMapping = {
+        'pinot-grigio': 'PinotGrigio.html',
+        'ramat-pinot-grigio': 'Jermann Pinot Grigio Ramat.html',
+        'dreams': 'Jermann W...Dreams....html',
+        'pinot-noir-red-angel': 'Angel.html'
+    };
     const wineDetails = {
         'vintage-tunina': {
             title: 'Vintage Tunina (2021)',
@@ -669,12 +720,6 @@
             image: 'redAngel.jpg',
             description: "Well-orchestrated, slightly herbaceous, with notes of frutti di bosco & spice. Displays elegance, finesse, with excellent balance. This wine demonstrates Jermann's mastery of red winemaking in Friuli.",
             notes: 'Food Pairing: Gulasch al Red Angel, braised meats, polenta'
-        },
-        'were-dreams': {
-            title: 'Were Dreams (2020)',
-            image: 'were-dreams.png',
-            description: "A sweet, ethereal dessert wine crafted from late-harvest Ribolla Gialla grapes. This wine represents the poetic side of Jermann winemaking. Golden amber color with intense aromas of dried fruits, honey, and candied citrus.",
-            notes: 'Food Pairing: Strudel al Jermann Dreams, desserts, blue cheeses'
         }
     };
 
@@ -687,13 +732,13 @@
 
             modalContent.innerHTML = `
                 <div class="animate-fade-in-up flex flex-col items-center gap-4 sm:gap-6 lg:gap-8">
-                    <img src="${wine.image}" alt="${wine.title} bottle" class="w-24 sm:w-28 md:w-32 h-auto object-contain shrink-0 filter drop-shadow-xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDIwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjUwIiB5PSI4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyOTUiIHJ4PSI1MCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPHBhdGggZD0iTTEwMCA4NVY4MEgyMDAiIHN0cm9rZT0iI0QyQTYyNyIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxwYXRoIGQ9Ik0xMDAgODBWODVoLTEwMCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPC9zdmc+">
+                    <img src="${wine.image}" alt="${wine.title} bottle" class="w-24 sm:w-28 md:w-32 h-auto object-contain shrink-0 filter drop-shadow-xl rounded-xl" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDIwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjUwIiB5PSI4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyOTUiIHJ4PSI1MCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPHBhdGggZD0iTTEwMCA4NVY4MEgyMDAiIHN0cm9rZT0iI0QyQTYyNyIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxwYXRoIGQ9Ik0xMDAgODBWODVoLTEwMCIgc3Ryb2tlPSIjRDJBNjI3IiBzdHJva2Utd2lkdGg9IjUiLz4KPC9zdmc+">
                     <div class="text-center w-full">
-                        <h4 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-espresso mb-2 leading-tight">${wine.title}</h4>
-                        <p class="text-xs sm:text-sm text-rich-brown italic mb-3 sm:mb-4 px-2">${wine.notes}</p>
+                        <h4 class="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-midnight-rock mb-2 leading-tight">${wine.title}</h4>
+                        <p class="text-xs sm:text-sm text-glacier-blue italic mb-3 sm:mb-4 px-2">${wine.notes}</p>
                         <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 px-2">${wine.description}</p>
                     </div>
-                    <button onclick="openTechnicalSheet('${wineKey}')" class="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-primary-gold text-white text-sm sm:text-base font-bold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                    <button onclick="openTechnicalSheet('${wineKey}')" class="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-alpine-sunrise text-midnight-rock text-sm sm:text-base font-bold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
                         Comprehensive Guide
                     </button>
                 </div>
@@ -708,15 +753,15 @@
         modal.classList.add('hidden');
         document.body.style.overflow = 'auto';
     }
-      function openTechnicalSheet(wineKey) {
-            const wineFile = wineFileMapping[wineKey];
-            if (wineFile) {
-                // Open the wine technical sheet in a new tab
-                window.open(wineFile, '_blank');
-            } else {
-                console.error('Wine file not found for key:', wineKey);
-            }
+    function openTechnicalSheet(wineKey) {
+        const wineFile = wineFileMapping[wineKey];
+        if (wineFile) {
+            // Open the wine technical sheet in a new tab
+            window.open(wineFile, '_blank');
+        } else {
+            console.error('Wine file not found for key:', wineKey);
         }
+    }
     
     // Close modal on outside click
     modal.addEventListener('click', (event) => {
@@ -830,7 +875,7 @@
                         © 2024 Gran Caffè L'Aquila Philadelphia
                     </p>
                     <p class="text-xs text-glacial-white/60">
-                        All rights reserved. | 1716 Chestnut St, Philadelphia, PA 19103
+                        All rights reserved. Images sourced from jermann.it| 1716 Chestnut St, Philadelphia, PA 19103
                     </p>
                 </div>
             </div>
