@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jermann Tunina - Technical Sheet</title>
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fcf7f7;
+            color: #333333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #2d5b7b;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+        }
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card-container {
+            position: relative;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .wine-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .logo-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            opacity: 0.1;
+            pointer-events: none;
+            text-align: center;
+        }
+        .logo-background img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            filter: grayscale(1%) brightness(0.7);
+        }
+        .wine-info h1 {
+            color: #2d5b7b;
+            margin-top: 0;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 10px;
+        }
+        .wine-info h2 {
+            font-style: italic;
+            font-weight: normal;
+            margin-top: 5px;
+            color: #1e4159;
+        }
+        .specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .spec-item {
+            display: flex;
+        }
+        .spec-item strong {
+            min-width: 120px;
+            color: #2d5b7b;
+        }
+        .chart-container {
+            position: relative;
+            padding: 20px;
+            z-index: 2;
+        }
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            position: relative;
+            z-index: 3;
+        }
+        .chart-title {
+            color: #2d5b7b;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 3;
+        }
+        .radar-chart {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            z-index: 3;
+        }
+        .aroma-chart {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            z-index: 3;
+        }
+        .flavor-profile {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+        .flavor-category {
+            padding: 10px;
+        }
+        .flavor-category h3 {
+            color: #2d5b7b;
+            margin-top: 0;
+        }
+        footer {
+            background-color: #1e4159;
+            color: #d4af37;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .wine-type-indicator {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #2d5b7b; 
+            color: #fff;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        .extra-info {
+            grid-column: span 2;
+            padding: 10px;
+            border-left: 3px solid #d4af37;
+            margin-top: 10px;
+        }
+        .extra-info h3 {
+            color: #2d5b7b;
+            margin-top: 0;
+        }
+        .extra-info p {
+            font-size: 14px;
+        }
+        
+        /* Media queries for mobile version */
+        @media (max-width: 768px) {
+            .content {
+                padding: 10px;
+            }
+            .wine-card {
+                grid-template-columns: 1fr;
+            }
+            .chart-row {
+                grid-template-columns: 1fr;
+            }
+            .specs {
+                grid-template-columns: 1fr;
+            }
+            .flavor-profile {
+                grid-template-columns: 1fr;
+            }
+            .spec-item {
+                flex-direction: column;
+            }
+            .spec-item strong {
+                min-width: auto;
+                margin-bottom: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jermann - Tunina <span class="wine-type-indicator">White Blend</span></h1>
+    </header>
+    
+    <div class="content">
+        <div class="card-container">
+            <div class="logo-background">
+                <img src="https://s4ng4.github.io/An-Evening-In-Alba/gcaLogo.png" alt="Wine logo" onerror="this.style.display='none'">
+            </div>
+            <div class="wine-card">
+                <div class="wine-info">
+                    <h1>Tunina</h1>
+                    <h2>Venezia Giulia IGT - 2024</h2>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <strong>Producer:</strong>
+                            <span>Jermann Winery</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Proprietor:</strong>
+                            <span>Silvio Jermann & the Antinori Family</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Winemaker:</strong>
+                            <span>Luca Belluzzo</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Grapes:</strong>
+                            <span>Chardonnay, Sauvignon Blanc, Malvasia, Picolit, Ribolla Gialla</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Denomination:</strong>
+                            <span>Venezia Giulia IGT</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Region:</strong>
+                            <span>Friuli-Venezia Giulia, Italy</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Vineyard Area:</strong>
+                            <span>Specific selection from Ruttars and Villanova vineyards</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Elevation:</strong>
+                            <span>80-130m</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Soil:</strong>
+                            <span>Ponca (Marl and Sandstone)</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Vine Age:</strong>
+                            <span>25-40 years</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Farming:</strong>
+                            <span>Sustainable practices, green harvesting</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Alcohol Content:</strong>
+                            <span>14.0%</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Acidity & pH:</strong>
+                            <span>5.8 g/L, 3.3</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Residual Sugar:</strong>
+                            <span>1.2 g/L</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Production:</strong>
+                            <span>Limited production (approx. 80,000 bottles)</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Harvest:</strong>
+                            <span>Manual selection, mid-September</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Aging:</strong>
+                            <span>10 months in French oak barriques (30% new)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wine-summary">
+                    <h3>About the Wine</h3>
+                    <p>Jermann Tunina is the iconic wine that revolutionized Italian white winemaking. Created in 1975, it's a sophisticated blend that expresses the unique terroir of Friuli with exceptional complexity and aging potential.</p>
+                    <h3>Vintage Notes 2024</h3>
+                    <p>A favorable growing season with moderate temperatures and optimal rainfall distribution. The summer was warm without excessive heat spikes, allowing for perfect phenolic ripening while maintaining fresh acidity. Harvest occurred under ideal conditions.</p>
+                    <h3>Vinification</h3>
+                    <p>Gentle pressing, fermentation with selected yeasts in temperature-controlled stainless steel tanks. Partial malolactic fermentation. Aged sur lie with regular bâtonnage for 10 months.</p>
+                    <h3>Packaging</h3>
+                    <p>6-pack wooden cases, premium cork closure with distinctive cream-colored capsule.</p>
+                </div>
+                <div class="extra-info">
+                    <h3>Winery History</h3>
+                    <p>Jermann Winery was founded in 1881. Silvio Jermann is considered one of the most influential winemakers in Italy, transforming his family's estate into a benchmark for quality white wines. Tunina, named after a local historical figure, became legendary for its innovative approach to white blends.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-container">
+            <div class="logo-background">
+                <img src="https://s4ng4.github.io/An-Evening-In-Alba/gcaLogo.png" alt="Wine logo" onerror="this.style.display='none'">
+            </div>
+            <div class="chart-container">
+                <h2 class="chart-title">Organoleptic Profile</h2>
+                <div class="chart-row">
+                    <div class="radar-chart">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+                            <text x="200" y="30" font-family="Garamond" font-size="18" fill="#2d5b7b" text-anchor="middle" font-weight="bold">Body and Structure</text>
+                            
+                            <polygon points="200,70 270,110 270,190 200,230 130,190 130,110" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <polygon points="200,90 250,120 250,180 200,210 150,180 150,120" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <polygon points="200,110 230,130 230,170 200,190 170,170 170,130" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            
+                            <line x1="200" y1="150" x2="200" y2="70" stroke="#888888" stroke-width="1"/>
+                            <line x1="200" y1="150" x2="270" y2="190" stroke="#888888" stroke-width="1"/>
+                            <line x1="200" y1="150" x2="270" y2="110" stroke="#888888" stroke-width="1"/>
+                            <line x1="200" y1="150" x2="200" y2="230" stroke="#888888" stroke-width="1"/>
+                            <line x1="200" y1="150" x2="130" y2="190" stroke="#888888" stroke-width="1"/>
+                            <line x1="200" y1="150" x2="130" y2="110" stroke="#888888" stroke-width="1"/>
+                            
+                            <text x="200" y="65" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="middle">Body</text>
+                            <text x="280" y="110" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="start">Sweetness</text>
+                            <text x="280" y="190" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="start">Alcohol</text>
+                            <text x="200" y="240" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="middle">Persistence</text>
+                            <text x="120" y="190" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Acidity</text>
+                            <text x="120" y="110" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Complexity</text>
+                            
+                            <!-- Updated values for Tunina: Body 8, Sweetness 1, Alcohol 7, Persistence 9, Acidity 6, Complexity 9 -->
+                            <polygon points="200,86 200,150 263,178 200,206 146,186 134,122" fill="rgba(45,91,123,0.5)" stroke="#2d5b7b" stroke-width="2"/>
+                            
+                            <circle cx="200" cy="86" r="4" fill="#2d5b7b"/>
+                            <circle cx="200" cy="150" r="4" fill="#2d5b7b"/>
+                            <circle cx="263" cy="178" r="4" fill="#2d5b7b"/>
+                            <circle cx="200" cy="206" r="4" fill="#2d5b7b"/>
+                            <circle cx="146" cy="186" r="4" fill="#2d5b7b"/>
+                            <circle cx="134" cy="122" r="4" fill="#2d5b7b"/>
+                            
+                            <foreignObject x="50%" y="260" width="500" height="50" transform="translate(-250, 0)">
+                                <div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; background-color: #ffffff; border: 1px solid #d4af37; border-radius: 5px; padding: 5px 15px; white-space: nowrap; transform: translateX(-50%); position: relative; left: 50%;">
+                                    <div style="display: flex; align-items: center;">
+                                        <div style="width: 10px; height: 10px; background-color: rgba(45,91,123,0.5); border: 1px solid #2d5b7b; margin-right: 10px;"></div>
+                                        <span style="font-family: Garamond; font-size: 12px; color: #2c1e1d;">Tunina 2024</span>
+                                    </div>
+                                </div>
+                            </foreignObject>
+                        </svg>
+                    </div>
+                    
+                    <div class="aroma-chart">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="100%" height="100%">
+                            <text x="200" y="30" font-family="Garamond" font-size="18" fill="#2d5b7b" text-anchor="middle" font-weight="bold">Aromatic Profile</text>
+                            
+                            <rect x="120" y="70" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="105" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="140" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="175" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="210" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="245" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            <rect x="120" y="280" width="200" height="25" fill="#f9f7f7" stroke="#d4af37" stroke-width="1"/>
+                            
+                            <text x="115" y="87" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Fruity</text>
+                            <text x="115" y="122" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Citrus</text>
+                            <text x="115" y="157" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Mineral</text>
+                            <text x="115" y="192" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Floral</text>
+                            <text x="115" y="227" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Spicy</text>
+                            <text x="115" y="262" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Tropical</text>
+                            <text x="115" y="297" font-family="Garamond" font-size="14" fill="#2c1e1d" text-anchor="end">Oak</text>
+                            
+                            <!-- Updated aromatic profile values for Tunina -->
+                            <rect x="120" y="70" width="160" height="25" fill="rgba(45,91,123,0.7)"/>  <!-- Fruity 80% -->
+                            <rect x="120" y="105" width="140" height="25" fill="rgba(45,91,123,0.7)"/>  <!-- Citrus 70% -->
+                            <rect x="120" y="140" width="120" height="25" fill="rgba(45,91,123,0.7)"/>  <!-- Mineral 60% -->
+                            <rect x="120" y="175" width="100" height="25" fill="rgba(45,91,123,0.7)"/>  <!-- Floral 50% -->
+                            <rect x="120" y="210" width="140" height="25" fill="rgba(45,91,123,0.7)"/>  <!-- Spicy 70% -->
+                            <rect x="120" y="245" width="180" height="25" fill="rgba(45,91,123,0.7)"/>  <!-- Tropical 90% -->
+                            <rect x="120" y="280" width="110" height="25" fill="rgba(45,91,123,0.7)"/>  <!-- Oak 55% -->
+                            
+                            <text x="120" y="325" font-family="Garamond" font-size="12" fill="#2c1e1d">Low</text>
+                            <text x="220" y="325" font-family="Garamond" font-size="12" fill="#2c1e1d" text-anchor="middle">Medium</text>
+                            <text x="320" y="325" font-family="Garamond" font-size="12" fill="#2c1e1d" text-anchor="end">High</text>
+                            <line x1="120" y1="330" x2="320" y2="330" stroke="#888888" stroke-width="1"/>
+                            <line x1="120" y1="328" x2="120" y2="332" stroke="#888888" stroke-width="1"/>
+                            <line x1="220" y1="328" x2="220" y2="332" stroke="#888888" stroke-width="1"/>
+                            <line x1="320" y1="328" x2="320" y2="332" stroke="#888888" stroke-width="1"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-container">
+            <div class="logo-background">
+                <img src="https://s4ng4.github.io/An-Evening-In-Alba/gcaLogo.png" alt="Wine logo" onerror="this.style.display='none'">
+            </div>
+            <div class="chart-container">
+                <h2 class="chart-title">Tasting Notes</h2>
+                <div class="flavor-profile">
+                    <div class="flavor-category">
+                        <h3>Visual</h3>
+                        <p>Brilliant golden yellow color with greenish reflections, excellent consistency with slow, dense tears.</p>
+                    </div>
+                    <div class="flavor-category">
+                        <h3>Olfactory</h3>
+                        <p>Complex and intense bouquet with notes of ripe tropical fruit (pineapple, mango), citrus zest, acacia flowers, and subtle hints of vanilla and toasted almonds from oak aging.</p>
+                    </div>
+                    <div class="flavor-category">
+                        <h3>Gustatory</h3>
+                        <p>Full-bodied and rich on the palate with remarkable structure. Excellent balance between alcohol, acidity and softness. Long persistent finish with notes of honey, almond and mineral hints.</p>
+                    </div>
+                </div>
+                <div class="flavor-profile">
+                    <div class="flavor-category">
+                        <h3>Pairing Suggestions</h3>
+                        <p>Ideal with elaborate fish dishes, shellfish, white meats and aged cheeses. Excellent as a meditation wine.</p>
+                    </div>
+                    <div class="flavor-category">
+                        <h3>Aging Potential</h3>
+                        <p>Excellent evolution potential: 7-10 years, can develop further complexity with proper cellaring.</p>
+                    </div>
+                    <div class="flavor-category">
+                        <h3>Serving Temperature</h3>
+                        <p>12-14°C (54-57°F) in large tulip-shaped glasses to enhance its complex aromatic profile.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 - Jermann - Tunina. Consume responsibly.</p>
+    </footer>
+</body>
+</html>
